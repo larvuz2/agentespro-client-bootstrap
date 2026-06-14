@@ -23,18 +23,41 @@ Only safe metadata and summaries are allowed: profile names, agent roles, tool s
 
 ## 1. Install baseline skills
 
-Install/load these public agentesPRO skills:
+Install/load only the core agentesPRO client baseline by default:
 
 ```text
 https://larvuz2.github.io/skills/chief-of-staff-agentespro.md
-https://larvuz2.github.io/skills/cto-agentespro.md
-https://larvuz2.github.io/skills/mkt-agentespro.md
 https://larvuz2.github.io/skills/beautiful-presentations.md
 ```
 
+Do **not** install CTO or CMO/MKT by default. They are optional modules, same as Market Intelligence, and should only be installed when the client scope explicitly needs them.
+
+### Optional modules
+
+Install these modules only when approved by the onboarding scope:
+
+```text
+# Software/build/deployment module
+https://larvuz2.github.io/skills/cto-agentespro.md
+
+# Marketing/content/growth module
+https://larvuz2.github.io/skills/mkt-agentespro.md
+
+# Market Intelligence module
+<market-intelligence-module-url-or-client-playbook>
+```
+
+Module install rule:
+
+- Default bootstrap = Chief of Staff/router + presentation/reporting support.
+- CTO module = opt-in for software, GitHub, app, deployment, database, QA, or technical workflow ownership.
+- CMO/MKT module = opt-in for brand, content, SEO, social, growth, analytics, or marketing workflow ownership.
+- Market Intelligence module = opt-in for recurring research, competitor monitoring, trend reports, or client intelligence workflows.
+- If a client needs none of the optional modules, do not install them “just in case.” Keep the install lean and modular.
+
 If a skill installer says a tarball is required, follow its instructions. After install, reload skills or start a fresh Hermes session.
 
-Current known package gap: connector/playbook/obsidian helper skills may need to be copied from the source VPS until public readers are published. This bootstrap still defines the required setup and verification.
+Current known package gap: connector/playbook/obsidian/helper skills and Market Intelligence may need to be copied from the source VPS or installed from the client playbook until public readers are published. This bootstrap still defines the required setup and verification.
 
 ## 2. Create client Memory OS context pack
 

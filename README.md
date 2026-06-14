@@ -12,7 +12,8 @@ https://raw.githubusercontent.com/larvuz2/agentespro-client-bootstrap/main/BOOTS
 
 ## What it covers
 
-- baseline agentesPRO skills
+- lean baseline agentesPRO skills
+- optional modules for CTO, CMO/MKT, and Market Intelligence
 - client Memory OS context pack
 - Obsidian-compatible client vault
 - dashboard connector registration
