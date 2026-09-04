@@ -86,7 +86,7 @@ Platform surfaces (nice to have):
 
 Not on GitHub yet (must be exported from the Larvuz VPS — see Phase 6 and 9):
 
-- `/root/.hermes/skills/` custom skills (NOT a git repo today — this is the biggest gap).
+- ~~`/root/.hermes/skills/`~~ → now versioned at private `larvuz2/agentespro-hermes-skills` (clone into `/root/.hermes/skills`).
 - Profile `SOUL.md` files and `profile.yaml` per profile.
 - Obsidian vaults (`/root/obsidian-vaults/gus-garza`, `/root/obsidian-vaults/slopia-agent`).
 - `/root/AI_OS_MASTER_ROUTER.md`.
@@ -265,7 +265,12 @@ tar czf /root/agentespro-skills-$(date +%F).tgz -C /root/.hermes skills
 tar xzf agentespro-skills-*.tgz -C /root/.hermes
 ```
 
-B. Preferred long-term: publish a private repo `larvuz2/agentespro-hermes-skills` from `/root/.hermes/skills` and `git clone` it into `/root/.hermes/skills` on every new VPS. (Action item for Larvuz VPS — not done yet.)
+B. Preferred (live since 2026-09-04): private repo `larvuz2/agentespro-hermes-skills` mirrors `/root/.hermes/skills`.
+```bash
+gh auth login   # larvuz2 token with repo scope
+rm -rf /root/.hermes/skills && gh repo clone larvuz2/agentespro-hermes-skills /root/.hermes/skills
+```
+Sync from the Larvuz VPS: `cd /root/.hermes/skills && git add -A && git commit -m "skills: sync" && git push`.
 
 Baseline skills the Chief of Staff must have (from Larvuz):
 - `chief-of-staff-agentespro`, `agentespro-platform-operations`, `agentespro-playbooks`, `agentespro-lovable-connector`, `hermes-webui-portal-operations`, `agent-identity-ui`, `cron-message-style`
@@ -382,7 +387,7 @@ Add only when there is real work for them: `cto-<company>`, `mkt-<company>`, `co
 
 ## 5. Known gaps to fix on the Larvuz VPS first (so the next replica is cleaner)
 
-1. `/root/.hermes/skills` is not a git repo → create private `larvuz2/agentespro-hermes-skills`.
+1. ✅ `/root/.hermes/skills` versioned as private `larvuz2/agentespro-hermes-skills` (2026-09-04).
 2. `hermies-matchmake` cron duplicated ~150× in `jobs.json` → dedupe to one.
 3. `agentespro-hermes-dashboard.service` is in auto-restart loop → fix or disable before templating.
 4. `nginx.service` failed and unused (Caddy owns 80/443) → disable nginx; move the `hermies` site to Caddy.
